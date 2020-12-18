@@ -1,12 +1,16 @@
-/* app.get('*', (req, res) => {
-    res.sendFile(`dist/index.html`); // load the single view file (angular will handle the page changes on the front-end)
-}); */
+//Install express server
+const express = require('express');
+const path = require('path');
 
-app.use(express.static(’./dist/kelton’));
+const app = express();
 
-app.get('/*', function(req, res) {
-  res.sendFile('index.html', {root: 'dist/<name-on-package.json>/'}
-);
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/kelton'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/kelton/index.html'));
 });
 
+// Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
