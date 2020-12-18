@@ -20,6 +20,7 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
   commentDetail: any = [];
   fieldHide: boolean = true;
   commentForm: FormGroup;
+  submitted: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -52,6 +53,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
   // convenience getter for easy access to form fields
   get f() { return this.commentForm.controls; }
 
+  /**
+   * @description:
+   * @author:
+   */
   checkAuthentication() {
     this.fieldHide = true;
     this.f.name.setValidators(null);
@@ -65,6 +70,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
     console.log(this.fieldHide)
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   getPostDetail() {
     forkJoin(
       [this.apiService.get(this.staticConst.APIS.listPost + `/${this.id}`)
@@ -75,6 +84,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
       .subscribe(res => this.handleResponse(res))
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   handleResponse(res) {
     console.log(res)
     if (res[0]['code'] == 200) {
@@ -85,7 +98,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
     }
   }
 
-  submitted: boolean = false;
+  /**
+   * @description:
+   * @author:
+   */
   addComment() {
     this.submitted = true
     if (this.commentForm.status == "INVALID") {
@@ -104,6 +120,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
     this.sendComment(userData);
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   sendComment(userData) {
     let data = {}
     data = { ...userData };

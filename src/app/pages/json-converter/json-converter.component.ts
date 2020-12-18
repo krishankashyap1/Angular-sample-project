@@ -13,7 +13,11 @@ export class JsonConverterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  /**
+   * @description:
+   * @author:
+   */
   doSome() {
     try {
       this.finalOutput = JSON.parse(this.name)  

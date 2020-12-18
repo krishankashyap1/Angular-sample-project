@@ -20,6 +20,10 @@ export class PostComponent implements OnInit {
     this.getPosts();
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   getPosts() {
     this.apiService.get(this.staticConst.APIS.listPost).subscribe(
       (data) => {
@@ -29,6 +33,10 @@ export class PostComponent implements OnInit {
       });
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
     this.pageOfItems = pageOfItems;
