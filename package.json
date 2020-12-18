@@ -1,6 +1,9 @@
 {
   "name": "kelton",
   "version": "0.0.0",
+  "engines": { 
+	"node": "v12.16.1" 
+  },
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
