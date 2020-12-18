@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 blogShort" *ngFor="let item of pageOfItems">
+            <h4>{{item?.title}}</h4>
+            <article>
+                <p>
+                    {{item?.body|slice:0:120}}<ng-container *ngIf="item?.body.length > 120"> ...</ng-container>
+                </p>
+            </article>
+            <a class="btn btn-info mb-2 float-right" href="javascript:void(0)" [routerLink]="['/post-detail', item.id]">READ MORE</a>
+        </div>
+        <div class="col-md-12 gap10"></div>
+    </div>
+    <div class="row pb-0 pt-3 d-flex justify-content-end">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div>

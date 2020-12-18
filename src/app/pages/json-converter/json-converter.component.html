@@ -1,0 +1,15 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-6 form-group mt-3">
+            <label for="jsonText">Please Add Input</label>
+            <textarea class="form-control" id="jsonText" rows="8" [(ngModel)]="name" #ctrl="ngModel"
+                (input)="doSome()"></textarea>
+            <span class="text-danger">{{error}}</span>
+        </div>
+    </div>
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-6 form-group mt-3 bg-light anyClass">
+            <pre [innerHTML]="finalOutput | jsonprint"></pre>
+        </div>
+    </div>
+</div>
