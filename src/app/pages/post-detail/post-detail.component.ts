@@ -42,6 +42,10 @@ export class PostDetailComponent implements OnInit, AfterContentChecked, OnDestr
     this.checkAuthentication();
   }
 
+  /**
+   * @description:
+   * @author:
+   */
   getCommentForm() {
     this.commentForm = this.fb.group({
       comment: ['', Validators.required],
